@@ -1,20 +1,12 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 
 app.get('/', (req, res) => {
-    res.send('Hello world...');
+    res.send("Hello iam Nagarajan....");
+});
+app.get('/:event/:sport', (req, res) => {
+    res.send(`Event >>>>${req.params.event} >>>> Sport >>>>${req.params.sport}`);
 });
 
-app.get('/api/courses', (req, res) => {
-    res.send([1, 2, 3]);
-});
-
-app.get('/api/courses/:date/:month/:year', (req, res) => {
-    // res.send(req.params);
-    res.send(req.query);
-});
-
-const port = process.env.PORT || 4001;
-app.listen(port, () => {
-    console.log(`Listening on port ${port}....`);
-})
+const port = process.env.PORT || 3000;
+app.listen(port, () => { console.log(`app Listening on ${port}`) })
